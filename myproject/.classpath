@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="jarexport.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang3-3.12.0.jar"/>
+	<classpathentry kind="lib" path="lib/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/byte-buddy-1.10.18.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/byte-buddy-1.10.19.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/byte-buddy-agent-1.10.19.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/findbugs-annotations-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/hamcrest-library-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/jna-5.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/jna-platform-5.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/jsr305-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/junit-4.13.1.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/mockito-core-3.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/mockito-junit-jupiter-3.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-lesson-libs/objenesis-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-8.0.27.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/byte-buddy-1.10.14.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/byte-buddy-agent-1.10.14.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/findbugs-annotations-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/javassist-3.27.0-GA.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/jna-5.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/jna-platform-5.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/jsr305-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/objenesis-3.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/powermock-api-mockito2-2.0.9.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/powermock-api-support-2.0.9.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/powermock-core-2.0.9.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/powermock-module-junit4-2.0.9.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/powermock-module-junit4-common-2.0.9.jar"/>
+	<classpathentry kind="lib" path="lib/powermockito-libs/powermock-reflect-2.0.9.jar"/>
+	<classpathentry kind="lib" path="src/com/itbulls/learnit/javacore/oop/exam/onlineshop/lib/javax.mail.jar"/>
+	<classpathentry kind="lib" path="src/com/itbulls/learnit/javacore/oop/exam/onlineshop/lib/javax.activation_1.1.0.v201211130549.jar"/>
+	<classpathentry kind="lib" path="src/com/itbulls/learnit/javacore/oop/exam/onlineshop/lib/stripe-java-28.1.0 (1).jar"/>
+	<classpathentry kind="lib" path="src/com/itbulls/learnit/javacore/oop/exam/onlineshop/lib/gson-2.10.1.jar"/>
+	<classpathentry kind="lib" path="src/com/itbulls/learnit/javacore/oop/exam/onlineshop/lib/dotenv-java-3.0.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

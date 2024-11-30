@@ -191,9 +191,8 @@ public class MainMenu implements Menu {
         // Update quantity using ProductManagementService
         int newQuantity = existingProduct.getQuantity() + additionalQuantity;
         DefaultProductManagementService.getInstance().updateProductQuantity(existingProduct, newQuantity);
-        System.out.println(newQuantity);
         // Calculate the total cost for the additional quantity
-        double additionalCost = additionalQuantity * existingProduct.getPrice();
+        double additionalCost = additionalQuantity * existingProduct.getBuyingPrice();
 
         // Deduct the cost from the store budget
         context.updateStoreBudget(-additionalCost);

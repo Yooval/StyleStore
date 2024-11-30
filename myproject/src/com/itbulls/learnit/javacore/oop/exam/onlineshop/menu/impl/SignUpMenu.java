@@ -1,17 +1,13 @@
 package com.itbulls.learnit.javacore.oop.exam.onlineshop.menu.impl;
 
 import java.util.Scanner;
-
 import com.itbulls.learnit.javacore.oop.exam.onlineshop.configs.ApplicationContext;
 import com.itbulls.learnit.javacore.oop.exam.onlineshop.enteties.UserRole;
 import com.itbulls.learnit.javacore.oop.exam.onlineshop.enteties.User;
-import com.itbulls.learnit.javacore.oop.exam.onlineshop.enteties.impl.DefaultUser;
-import com.itbulls.learnit.javacore.oop.exam.onlineshop.enteties.impl.Seller;
 import com.itbulls.learnit.javacore.oop.exam.onlineshop.menu.Menu;
-import com.itbulls.learnit.javacore.oop.exam.onlineshop.services.impl.DefaultUserManagementService;
 import com.itbulls.learnit.javacore.oop.exam.onlineshop.utils.InputValidator;
-
-// This file facilitates user registration with input validation and role assignment.
+import com.itbulls.learnit.javacore.oop.exam.onlineshop.factories.UserFactory;
+import com.itbulls.learnit.javacore.oop.exam.onlineshop.factories.impl.DefaultUserFactory;
 
 public class SignUpMenu implements Menu {
 
@@ -24,16 +20,13 @@ public class SignUpMenu implements Menu {
     @Override
     public void start() {
         printMenuHeader();
-
         Scanner sc = new Scanner(System.in);
 
-        // Collect user details
         String firstName = getValidName(sc, "Please, enter your first name: ");
         String lastName = getValidName(sc, "Please, enter your last name: ");
         String password = getValidPassword(sc, "Please, enter your password: ");
         String email = getValidEmail(sc, "Please, enter your email: ");
 
-        // Role selection
         UserRole role = null;
         while (role == null) {
             System.out.print("Please, enter the role (CUSTOMER, ADMIN, or SELLER): ");
@@ -45,29 +38,23 @@ public class SignUpMenu implements Menu {
             }
         }
 
-        // Create appropriate user instance based on role
-        User user;
-        if (role == UserRole.SELLER) {
-            user = new Seller(firstName, lastName, email, password);
-        } else {
-            user = new DefaultUser(firstName, lastName, password, email, role);
-        }
+        // Use the factory to create a user
+        UserFactory userFactory = new DefaultUserFactory();
+        User user = userFactory.createUser(role, firstName, lastName, email, password);
 
-        // Register the user
-        String errorMessage = DefaultUserManagementService.getInstance().registerUser(user);
+        String errorMessage = context.getUserManagementService().registerUser(user);
 
         if (errorMessage == null || errorMessage.isEmpty()) {
-            context.setLoggedInUser(user); // Set the user as logged-in
+            context.setLoggedInUser(user);
             System.out.println("New user is created.");
-
-            // Send welcome email
+         // Send welcome email
             context.getEmailService().sendEmail(
                     user.getEmail(),
                     "Welcome to the Online Store",
                     "Dear " + user.getFirstName()
                             + ",\n\nWelcome to the Online Store!\n\nBest regards,\nThe Store Team.");
         }
-    }
+        }
 
     private String getValidName(Scanner sc, String prompt) {
         while (true) {
@@ -76,8 +63,7 @@ public class SignUpMenu implements Menu {
             if (InputValidator.isValidName(input)) {
                 return input;
             } else {
-                System.out
-                        .println("Invalid name. Only letters are allowed, and it must be at least 2 characters long.");
+                System.out.println("Invalid name. Only letters are allowed, and it must be at least 2 characters long.");
             }
         }
     }
