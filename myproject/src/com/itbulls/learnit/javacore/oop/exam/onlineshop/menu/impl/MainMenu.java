@@ -14,6 +14,7 @@ import com.itbulls.learnit.javacore.oop.exam.onlineshop.services.impl.DefaultOrd
 import com.itbulls.learnit.javacore.oop.exam.onlineshop.services.impl.DefaultProductManagementService;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -100,7 +101,8 @@ public class MainMenu implements Menu {
             System.out.println("1. Add Product");
             System.out.println("2. Update Product Price");
             System.out.println("3. Update Product Description");
-            System.out.println("4. Return to Main Menu");
+            System.out.println("4. Return Product");
+            System.out.println("5. Return to Main Menu");
             System.out.print("Please choose an option: ");
             String userInput = sc.nextLine();
 
@@ -115,12 +117,74 @@ public class MainMenu implements Menu {
                     updateProductDescription();
                     break;
                 case "4":
+                    handleReturnProduct();
+                    break;
+                case "5":
                     return; // Exit the submenu
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
         }
     }
+    
+    private void handleReturnProduct() {
+        // Ensure the user is a manager (for example, role-based check)
+        if (!context.getLoggedInUser().getRole().equals(UserRole.ADMIN)) {
+            System.out.println("You must be an admin to return items.");
+            return;
+        }
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("***** RETURN PRODUCT *****");
+        System.out.println("Select a product to return:");
+
+        // List all products (retrieving them from product management service)
+        Product[] products = productManagementService.getProducts();
+        if (products == null || products.length == 0) { // Check if there are no products
+            System.out.println("No products available to return.");
+            return;
+        }
+
+        // Display products for return selection
+        for (int i = 0; i < products.length; i++) { // Using products.length for array length
+            Product product = products[i];
+            System.out.printf("%d. %s - $%.2f (Available: %d)\n", i + 1, product.getProductName(), product.getPrice(), product.getQuantity());
+        }
+
+        System.out.print("Enter the product number to return (or 0 to cancel): ");
+        int productIndex = sc.nextInt() - 1;  // Index of selected product (adjusted for zero-indexing)
+        if (productIndex < 0 || productIndex >= products.length) { // Use products.length to ensure valid selection
+            System.out.println("Invalid product selection. Returning to the previous menu.");
+            return;
+        }
+
+        Product productToReturn = products[productIndex];
+
+        // Ask how many items they want to return (all or part)
+        System.out.print("Enter the quantity to return (1 to " + productToReturn.getQuantity() + "): ");
+        int quantityToReturn = sc.nextInt();
+
+        // Ensure valid quantity input
+        if (quantityToReturn <= 0 || quantityToReturn > productToReturn.getQuantity()) {
+            System.out.println("Invalid quantity. Returning to the previous menu.");
+            return;
+        }
+
+        // Calculate the refund value (80% of the product's value)
+        double refundValue = productToReturn.getPrice() * 0.80 * quantityToReturn;
+
+        // Update store budget
+        context.updateStoreBudget(refundValue);
+
+        // Update the product quantity
+        productToReturn.setQuantity(productToReturn.getQuantity() - quantityToReturn);
+
+        // Provide feedback
+        System.out.printf("You have successfully returned %d of '%s'. $%.2f has been added to the store budget.\n",
+                quantityToReturn, productToReturn.getProductName(), refundValue);
+    }
+
+
 
     void handleAddProduct() {
         Scanner sc = new Scanner(System.in);
