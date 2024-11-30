@@ -1,5 +1,6 @@
 # StyleShop
 
+## Overview
 **StyleShop** is an Object-Oriented Programming (OOP) application built using design pattern principles to create a virtual clothing shop. The app supports three user roles: **Admins**, **Sellers**, and **Customers**, each with specific permissions. All users can sign up, log in, and interact with the shop, while Admins are responsible for managing the inventory. The app also features a rewards system, providing discounts for shop workers and credits for Sellers who assist Customers.
 
 ## Features
