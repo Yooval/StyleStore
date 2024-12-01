@@ -171,7 +171,7 @@ public class MainMenu implements Menu {
         }
 
         // Calculate the refund value (80% of the product's value)
-        double refundValue = productToReturn.getPrice() * 0.80 * quantityToReturn;
+        double refundValue = productToReturn.getBuyingPrice() * 0.80 * quantityToReturn;
 
         // Update store budget
         context.updateStoreBudget(refundValue);
