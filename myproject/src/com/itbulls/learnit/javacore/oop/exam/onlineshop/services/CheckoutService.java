@@ -41,7 +41,7 @@ public class CheckoutService {
                 Seller selectedSeller = sellers.get(sellerChoice - 1);
                 System.out.println("Thank you! Seller " + selectedSeller.getFirstName() +
                         " " + selectedSeller.getLastName() + " has been credited for assisting you.");
-                selectedSeller.helpCustomer(100.0); // Example: Add credit points for a $100 bill
+                //selectedSeller.helpCustomer(100.0); // Example: Add credit points for a $100 bill
             } else {
                 System.out.println("Invalid choice. No seller was credited.");
             }
