@@ -1,7 +1,11 @@
 # StyleShop
 
 ## Overview
-**StyleShop** is an Object-Oriented Programming (OOP) application built using design pattern principles to create a virtual clothing shop. The app supports three user roles: **Admins**, **Sellers**, and **Customers**, each with specific permissions. All users can sign up, log in, and interact with the shop, while Admins are responsible for managing the inventory. The app also features a rewards system, providing discounts for shop workers and credits for Sellers who assist Customers.
+**StyleShop** is an Object-Oriented Programming (OOP) application built using design pattern principles to create a virtual clothing shop. The app supports three user roles: **Admins**, **Sellers**, and **Customers**, each with specific permissions. All users can sign up, log in, and interact with the shop, while Admins manage the inventory, and Sellers assist customers.  
+
+The app features a detailed mail system for sign-ups (all users), inventory changes (Admins), and purchase receipts (all users). A **rewards system** provides a 20% discount for shop workers and credits for Sellers who assist Customers. Additionally, all users can refund a purchase (delete a transaction) within 10 minutes.  
+
+Admins can also process product returns at 80% of their value and view all completed transactions, while Sellers earn credit points equal to 10% of the bill when assisting customers, which can be redeemed in-store. Customers can shop independently or request assistance from Sellers.
 
 ## Features
 
