@@ -34,4 +34,4 @@ Admins can also process product returns at 80% of their value and view all compl
 2. **Download the Project**: Clone or download the repository.
 3. **Run the Application**:
    - Navigate to the project folder.
-   - Execute the `main.java` file to start the app.
+   - Execute the `main.java` file to start the app(**myproject -> src -> Main.java -> Run As -> Java Application**).
