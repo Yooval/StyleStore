@@ -5,8 +5,8 @@
 
 ## User Roles and Permissions  
 
-- **Admins**: Manage inventory (add, update, remove) and process product returns at 80% value. View all completed transactions and oversee store operations.  
-- **Sellers**: Assist Customers with shopping and earn credit points (10% of bill) redeemable in-store.  
+- **Admins**: Manage inventory and process product returns at 80% value. View all completed transactions and oversee store operations.  
+- **Sellers**: Assist Customers and earn credit points (10% of bill) redeemable in-store.  
 - **Customers**: Browse and shop independently or request assistance from Sellers. Refund purchases within 10 minutes of completing a transaction.  
 
 ## Key Features  
